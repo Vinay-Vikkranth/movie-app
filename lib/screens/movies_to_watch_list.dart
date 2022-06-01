@@ -15,11 +15,15 @@ class MoviesToWatchList extends StatelessWidget {
         toolbarHeight: 100,
         title: Column(children: [
           Text('Movies',
-              style: TextStyle(fontFamily: 'Amstrike', fontSize: 22)),
+              style: TextStyle(
+                  //fontFamily: 'Amstrike',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold)),
+          SizedBox(height: 10.0),
           Text('Pending Movies',
               style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold))
         ]),
-        backgroundColor: Color.fromRGBO(211, 12, 27, 1),
+        backgroundColor: Colors.black,
         centerTitle: true,
       ),
       backgroundColor: Colors.white,

@@ -21,7 +21,6 @@ class MovieForm extends StatelessWidget {
   }
   _getImgFromCamera() {
     ImagePicker.pickImage(source: ImageSource.camera).then((file) {
-      // usuario fechou a camera
       if (file == null) return;
       movieFormBloc.changeMovieImage(file.path);
     });
@@ -51,7 +50,7 @@ class MovieForm extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.photo_library,
-                              color: Color.fromRGBO(211, 12, 27, 1)),
+                              color: Colors.black),
                           SizedBox(width: 10),
                           Text('Gallery',
                               style: TextStyle(fontSize: 17, letterSpacing: 2))
@@ -67,7 +66,7 @@ class MovieForm extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.photo_camera,
-                              color: Color.fromRGBO(211, 12, 27, 1)),
+                              color: Colors.black),
                           SizedBox(width: 10),
                           Text('Camera',
                               style: TextStyle(fontSize: 17, letterSpacing: 2))
@@ -105,7 +104,7 @@ class MovieForm extends StatelessWidget {
                       fontSize: 18,
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(211, 12, 27, 1))),
+                      color: Colors.black)),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -117,7 +116,7 @@ class MovieForm extends StatelessWidget {
                   fontSize: 18,
                   letterSpacing: 1,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(211, 12, 27, 1),
+                  color: Colors.black,
                 ),
               ),
               onPressed: () {
@@ -139,7 +138,7 @@ class MovieForm extends StatelessWidget {
       onWillPop: () => requestPop(context),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(211, 12, 27, 1),
+          backgroundColor: Colors.black,
           toolbarHeight: 90,
           title: StreamBuilder(
               stream: movieFormBloc.movieName,
@@ -168,7 +167,7 @@ class MovieForm extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: Icon(Icons.save),
-                backgroundColor: Color.fromRGBO(211, 12, 27, 1),
+                backgroundColor: Colors.black,
               );
             } else {
               return Container();
@@ -288,7 +287,7 @@ class MovieForm extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Icon(Icons.error, color: Color.fromRGBO(211, 12, 27, 1)),
+                    Icon(Icons.error, color: Colors.black),
                     SizedBox(width: 10),
                     Text(
                       'All fields need to be filled',
@@ -308,7 +307,7 @@ class MovieForm extends StatelessWidget {
                         value: snapshot.hasData && snapshot.data ? true : false,
                         title: Text("Have you ever seen this movie ?"),
                         subtitle:
-                            Text("confirm by checking the box on the side"),
+                            Text("[confirm by checking the box on the side]"),
                         controlAffinity: ListTileControlAffinity.leading,
                         onChanged: movieFormBloc.changeMovieStatus,
                         //  <-- leading Checkbox

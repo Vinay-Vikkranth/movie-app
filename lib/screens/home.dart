@@ -19,8 +19,9 @@ class _HomeState extends State<Home> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: IndexedStack(
+      backgroundColor: Colors.black54,
+      body:
+      IndexedStack(
         index: _currentIndex,
         children: _children,
       ),
@@ -31,7 +32,7 @@ class _HomeState extends State<Home> {
         elevation: 5.0,
         icon: Icon(Icons.add),
         label: Text('New Movie', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-        backgroundColor: Color.fromRGBO(211, 12, 27, 1),
+        backgroundColor: Colors.black,
         onPressed: () {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => MovieForm()));
@@ -43,7 +44,7 @@ class _HomeState extends State<Home> {
           height: 55,
           margin: EdgeInsets.only(left: 12.0, right: 12.0),
           child: Row(
-            mainAxisSize: MainAxisSize.max,
+            //mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
 
@@ -55,8 +56,8 @@ class _HomeState extends State<Home> {
                 icon: Icon(
                   Icons.update,
                   color: _currentIndex == 0
-                      ?  Color.fromRGBO(211, 12, 27, 1)
-                      : Colors.grey.shade400,
+                      ?  Colors.black
+                      : Color.fromRGBO(211, 12, 27, 1),
                 ),
               ),
               SizedBox(
@@ -70,14 +71,14 @@ class _HomeState extends State<Home> {
                 icon: Icon(
                   Icons.check,
                   color: _currentIndex == 1
-                      ?  Color.fromRGBO(211, 12, 27, 1)
-                      : Colors.grey.shade400,
+                      ?  Colors.black
+                      : Colors.amber,
                 ),
               ),
             ],
           ),
         ),
-        color: Colors.white,
+        color: Colors.grey,
       )
     );
   }
