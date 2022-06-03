@@ -53,7 +53,10 @@ class MovieForm extends StatelessWidget {
                               color: Colors.black),
                           SizedBox(width: 10),
                           Text('Gallery',
-                              style: TextStyle(fontSize: 17, letterSpacing: 2))
+                              style: TextStyle(
+                                        fontSize: 17,
+                                        letterSpacing: 2,
+                                        fontWeight: FontWeight.bold))
                         ]),
                     onTap: () {
                       _getImgFromGallery();
@@ -253,35 +256,7 @@ class MovieForm extends StatelessWidget {
                       ),
                     );
                   }),
-              StreamBuilder(
-                  stream: movieFormBloc.movieYear,
-                  builder:
-                      (BuildContext context, AsyncSnapshot<String> snapshot) {
-                    if (yearController.text != snapshot.data) {
-                      yearController.text = snapshot.data;
-                    }
-                    return Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                      child: TextFormField(
-                        controller: yearController,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 25, right: 25),
-                          fillColor: Color.fromRGBO(211, 12, 27, 1),
-                          labelText: "Year",
-                          labelStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          errorText: snapshot.error,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-                          ),
-                        ),
-                        onChanged: movieFormBloc.changeMovieYear,
-                        keyboardType: TextInputType.number,
-                      ),
-                    );
-                  }),
+              
               Padding(
                 padding: EdgeInsets.only(left: 30, right: 30, bottom: 15),
                 child: Row(
@@ -291,7 +266,9 @@ class MovieForm extends StatelessWidget {
                     SizedBox(width: 10),
                     Text(
                       'All fields need to be filled',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -305,9 +282,11 @@ class MovieForm extends StatelessWidget {
                       child: CheckboxListTile(
                         activeColor: Color.fromRGBO(211, 12, 27, 1),
                         value: snapshot.hasData && snapshot.data ? true : false,
-                        title: Text("Have you ever seen this movie ?"),
-                        subtitle:
-                            Text("[confirm by checking the box on the side]"),
+                        title: Text(
+                            "Have you ever seen this movie ?",
+                            style: TextStyle(fontWeight: FontWeight.bold)
+                            ),
+
                         controlAffinity: ListTileControlAffinity.leading,
                         onChanged: movieFormBloc.changeMovieStatus,
                         //  <-- leading Checkbox
